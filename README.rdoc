@@ -95,7 +95,7 @@ refer to http://pygments.org/docs/installation/
 
 == TODOs/ future plans
 
-At the moment there are neither TODOs nor future plans. If you want ot suggest any, do so at http://github.com/marcoow/highlight/issues.
+At the moment there are neither TODOs nor future plans. If you want ot suggest any, do so at http://github.com/simplabs/highlight/issues.
 
 
 == Author
