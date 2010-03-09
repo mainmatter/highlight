@@ -31,7 +31,7 @@ describe Simplabs::Highlight::PygmentsWrapper do
       Simplabs::Highlight::PygmentsWrapper.highlight(@code, 'unsupported language').should == CGI.escapeHTML(@code)
     end
 
-    it "should create temporary file"
+    it 'should create temporary file'
 
     it 'should write the code to the created file'
 
