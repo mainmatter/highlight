@@ -82,7 +82,7 @@ module Simplabs
     # * YAML (yaml, yml)
     def self.highlight(language, code)
       return CGI.escapeHTML(code) unless Simplabs::Highlight.initialized
-      Simplabs::Highlight::PygmentsWrapper.highlight(code, language)
+      Simplabs::Highlight::PygmentsWrapper.new(code, language).highlight
     end
 
     # Highlight view methods

@@ -33,8 +33,9 @@ EOC
         Simplabs::Highlight.initialized = true
       end
 
-      it 'should call Simplabs::PygmentsWrapper.highlight with the language and code' do
-        Simplabs::Highlight::PygmentsWrapper.should_receive(:highlight).once.with(@ruby_code, :ruby)
+      it 'should initialize a Simplabs::PygmentsWrapper.highlight with the language and code' do
+        wrapper = Simplabs::Highlight::PygmentsWrapper.new(@ruby_code, :ruby)
+        Simplabs::Highlight::PygmentsWrapper.should_receive(:new).once.with(@ruby_code, :ruby).and_return(wrapper)
 
         Simplabs::Highlight.highlight(:ruby, @ruby_code)
       end
