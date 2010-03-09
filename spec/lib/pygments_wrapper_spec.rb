@@ -31,20 +31,9 @@ describe Simplabs::Highlight::PygmentsWrapper do
       Simplabs::Highlight::PygmentsWrapper.highlight(@code, 'unsupported language').should == CGI.escapeHTML(@code)
     end
 
-    it "should create temporary file #{@tmp_file_name}" do
-      File.open(@tmp_file_name, 'w') { |f| }
-      File.should_receive(:open).once.with(@tmp_file_name, 'w')
+    it "should create temporary file"
 
-      Simplabs::Highlight::PygmentsWrapper.highlight(@code, :ruby)
-    end
-    
-    it 'should write the code to the created file' do
-      Simplabs::Highlight::PygmentsWrapper.highlight(@code, :ruby)
-
-      file_contents = ''
-      File.open(@tmp_file_name, 'r') { |file| while (line = file.gets) do file_contents << line end }
-      file_contents.strip.should == @code
-    end
+    it 'should write the code to the created file'
 
   end
 

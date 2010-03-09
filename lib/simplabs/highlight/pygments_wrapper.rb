@@ -10,12 +10,12 @@ module Simplabs
 
         def highlight(code, language)
           return CGI.escapeHTML(code) if !(language = get_language_sym(language))
-          filename = "/tmp/highlight_#{Time.now.to_f}"
-          File.open(filename, 'w') { |f|
+          tempfile = Tempfile.new('simplabs_highlight')
+          File.open(tempfile.path, 'w') do |f|
             f << code
             f << "\n"
-          }
-          result = `pygmentize -f html -O nowrap=true -l #{language} #{filename}`
+          end
+          result = `pygmentize -f html -O nowrap=true -l #{language} #{tempfile.path}`
           result.chomp
         end
 
