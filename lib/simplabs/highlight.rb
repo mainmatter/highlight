@@ -1,4 +1,6 @@
 require 'cgi'
+require 'net/http'
+require 'uri'
 
 module Simplabs
 
@@ -105,13 +107,7 @@ module Simplabs
       language = get_language_sym(language)
       return CGI.escapeHTML(code) unless language
       if Simplabs::Highlight.use_web_api
-        require 'net/http'
-        require 'uri'
-        request = Net::HTTP.post_form(URI.parse(WEB_API_URL), {
-          'lang' => language,
-          'code' => code
-        })
-        request.body.gsub(/\A\<div class=\"highlight\"\>\<pre\>/, '').gsub(/\n\<\/pre\>\<\/div\>\n/, '')
+        highlight_with_web_api(language, code)
       else
         Simplabs::Highlight::PygmentsWrapper.new(code, language).highlight
       end
@@ -164,6 +160,14 @@ module Simplabs
     end
 
     private
+
+      def self.highlight_with_web_api(language, code)
+        request = Net::HTTP.post_form(URI.parse(WEB_API_URL), {
+          'lang' => language,
+          'code' => code
+        })
+        request.body.gsub(/\A\<div class=\"highlight\"\>\<pre\>/, '').gsub(/\n\<\/pre\>\<\/div\>\n/, '')
+      end
 
       def self.get_language_sym(name)
         SUPPORTED_LANGUAGES.each_pair do |key, value|
