@@ -2,3 +2,5 @@
 spec/log/spec.log
 rdoc
 doc
+.bundle
+.yardoc
