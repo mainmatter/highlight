@@ -1,4 +1,5 @@
 require 'cgi'
+require 'tempfile'
 
 module Simplabs
 
@@ -17,7 +18,7 @@ module Simplabs
 
       def highlight
         return CGI.escapeHTML(@code) unless @language
-        tempfile = Tempfile.new('simplabs_highlight')
+        tempfile = ::Tempfile.new('simplabs_highlight')
         File.open(tempfile.path, 'w') do |f|
           f << @code
           f << "\n"
