@@ -5,6 +5,10 @@ Highlight is a simple syntax highlighting plugin for Ruby on Rails. It's basical
 wrapper around the popular [http://pygments.org](http://pygments.org) highlighter that's
 written in Python and supports an impressive number of languages.
 
+If pygments is installed on the machine and in the `PATH`, that binary is used, otherwise
+the plugin falls back to the web API at (http://pygments.appspot.com/), provided by Trevor
+Turk.
+
 See the API docs at [http://rdoc.info/projects/simplabs/highlight](http://rdoc.info/projects/simplabs/highlight).
 
 Usage
@@ -112,3 +116,5 @@ Acknowledgements
 ----------------
 
 The actual highlighting is done by Pygments ([http://pygments.org](http://pygments.org)).
+
+The pygments web API at [http://pygments.appspot.com/](http://pygments.appspot.com/) was created by Trevor Turk.

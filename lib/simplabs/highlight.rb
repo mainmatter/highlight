@@ -5,7 +5,10 @@ module Simplabs
   # Highlight is a simple syntax highlighting plugin for Ruby on Rails.
   # It's basically a wrapper around the popular http://pygments.org
   # highlighter that's written in Python and supports an impressive
-  # number of languages.
+  # number of languages. If pygments is installed on the machine and in
+  # the +PATH+, that binary is used, otherwise the plugin falls back
+  # to the web API at (http://pygments.appspot.com/), created by Trevor
+  # Turk.
   #
   # <b>Supported Languages</b>
   #
