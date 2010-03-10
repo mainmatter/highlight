@@ -1,4 +1,3 @@
-require 'cgi'
 require 'tempfile'
 
 module Simplabs
@@ -27,7 +26,7 @@ module Simplabs
       #
       def initialize(code, language)
         @code     = code
-        @language = get_language_sym(language)
+        @language = language
       end
 
       # Highlights the {Simplabs::Highlight::PygmentsWrapper#code}.
@@ -37,7 +36,6 @@ module Simplabs
       #   if the language is not supported.
       #
       def highlight
-        return CGI.escapeHTML(@code) unless @language
         tempfile = ::Tempfile.new('simplabs_highlight')
         File.open(tempfile.path, 'w') do |f|
           f << @code
@@ -46,15 +44,6 @@ module Simplabs
         result = `pygmentize -f html -O nowrap=true -l #{@language} #{tempfile.path}`
         result.chomp
       end
-
-      private
-
-        def get_language_sym(name)
-          Simplabs::Highlight::SUPPORTED_LANGUAGES.each_pair do |key, value|
-            return key if value.any? { |lang| lang == name.to_s }
-          end
-          return false
-        end
 
     end
 

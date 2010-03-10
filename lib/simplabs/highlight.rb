@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Simplabs
 
   # Highlight is a simple syntax highlighting plugin for Ruby on Rails.
@@ -46,7 +48,7 @@ module Simplabs
   #
   module Highlight
 
-    mattr_accessor :initialized
+    mattr_accessor :use_web_api
 
     SUPPORTED_LANGUAGES = {
       :as            => ['as', 'as3', 'actionscript'],
@@ -82,6 +84,8 @@ module Simplabs
       :yaml          => ['yaml', 'yml']
     }
 
+    WEB_API_URL = 'http://pygments.appspot.com/'
+
     # Highlights the passed +code+ with the appropriate rules
     # according to the specified +language+.
     #
@@ -91,11 +95,23 @@ module Simplabs
     #   the actual code to highlight
     #
     # @return [String]
-    #   the highlighted +code+
+    #   the highlighted +code+ or simply the HTML-escaped code if +language+
+    #   is not supported.
     #
     def self.highlight(language, code)
-      return CGI.escapeHTML(code) unless Simplabs::Highlight.initialized
-      Simplabs::Highlight::PygmentsWrapper.new(code, language).highlight
+      language = get_language_sym(language)
+      return CGI.escapeHTML(code) unless language
+      if Simplabs::Highlight.use_web_api
+        require 'net/http'
+        require 'uri'
+        request = Net::HTTP.post_form(URI.parse(WEB_API_URL), {
+          'lang' => language,
+          'code' => code
+        })
+        request.body.gsub(/\A\<div class=\"highlight\"\>\<pre\>/, '').gsub(/\n\<\/pre\>\<\/div\>\n/, '')
+      else
+        Simplabs::Highlight::PygmentsWrapper.new(code, language).highlight
+      end
     end
 
     # View Helpers for using {Highlight} in Ruby on Rails templates.
@@ -105,6 +121,17 @@ module Simplabs
       # Highlights the passed +code+ with the appropriate rules
       # according to the specified +language+. The code can be specified
       # either as a string or provided in a block.
+      #
+      # @param [Symbol, String] language
+      #   the language the +code+ is in
+      # @param [String] code
+      #   the actual code to highlight
+      # @yield
+      #   the +code+ can also be specified as result of a given block.
+      #
+      # @return [String]
+      #   the highlighted +code+ or simply the HTML-escaped code if +language+
+      #   is not supported.
       #
       # @example Specifying the code to highlight as a String
       #
@@ -132,6 +159,15 @@ module Simplabs
       end
 
     end
+
+    private
+
+      def self.get_language_sym(name)
+        SUPPORTED_LANGUAGES.each_pair do |key, value|
+          return key if value.any? { |lang| lang == name.to_s }
+        end
+        return false
+      end
 
   end
 

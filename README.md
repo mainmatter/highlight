@@ -22,10 +22,10 @@ below). The code can be passed either as a string or inside a block, e.g.:
 or
 
     highlight(:ruby) do
-      <<-EOF
-        class Test
-        end
-      EOF
+      klass = 'class'
+      name  = 'Test'
+      _end  = 'end'
+      "#{klass} #{name}; #{_end}"
     end
 
 To perform the highlighting, the code is first written to a temporary file e.g.:
