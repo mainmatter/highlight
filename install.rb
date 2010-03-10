@@ -1,4 +1,4 @@
-require 'ftools'
+require 'fileutils'
 
 puts "Copying highlight.css to #{RAILS_ROOT}/public/stylesheets/"
 
