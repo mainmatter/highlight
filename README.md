@@ -41,9 +41,10 @@ This file is then passed to pygments that returns the HTML and so on...
 Since writing that file, passing its contents on to pygments, retrieving the result etc.
 takes a while, all highlighted source code should be cached, e.g.:
 
-    <% cache do %>
-      <%= highlight(:ruby, 'class Test; end') -%>
-    <% end %>
+    <%- code = 'class Test; end' -%>
+    <%- cache Digest::SHA1.hexdigest(code) do -%>
+      <%= highlight(:ruby, code) -%>
+    <%- end -%>
 
 
 Supported Languages
