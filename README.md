@@ -21,7 +21,7 @@ Highlight provides a new method that's available in views:
 `language` may be either a Symbol or a String (see supported languages
 below). The code can be passed either as a string or inside a block, e.g.:
 
-  highlight(:ruby, 'class Test; end')
+    highlight(:ruby, 'class Test; end')
 
 or
 
