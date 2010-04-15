@@ -35,7 +35,7 @@ module Simplabs
       #   the highlighted code or simply the HTML-escaped code
       #   if the language is not supported.
       #
-      def highlight_code
+      def highlight
         tempfile = ::Tempfile.new('simplabs_highlight')
         File.open(tempfile.path, 'w') do |f|
           f << @code

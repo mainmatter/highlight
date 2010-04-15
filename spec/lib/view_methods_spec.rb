@@ -13,9 +13,9 @@ describe Simplabs::Highlight::ViewMethods do
     describe 'when invoked with a language and a string' do
 
       it 'should highlight the code' do
-        Simplabs::Highlight.should_receive(:highlight_code).once.with(:ruby, @ruby_code)
+        Simplabs::Highlight.should_receive(:highlight).once.with(:ruby, @ruby_code)
 
-        highlight(:ruby, @ruby_code)
+        highlight_code(:ruby, @ruby_code)
       end
 
     end
@@ -23,9 +23,9 @@ describe Simplabs::Highlight::ViewMethods do
     describe 'when invoked with a language and a block' do
 
       it 'should highlight the code' do
-        Simplabs::Highlight.should_receive(:highlight_code).once.with(:ruby, @ruby_code)
+        Simplabs::Highlight.should_receive(:highlight).once.with(:ruby, @ruby_code)
 
-        highlight(:ruby) do
+        highlight_code(:ruby) do
           @ruby_code
         end
       end
