@@ -16,16 +16,16 @@ Usage
 
 Highlight provides a new method that's available in views:
 
-    highlight(language, code = nil, &block)
+    highlight_code(language, code = nil, &block)
 
 `language` may be either a Symbol or a String (see supported languages
 below). The code can be passed either as a string or inside a block, e.g.:
 
-    highlight(:ruby, 'class Test; end')
+    highlight_code(:ruby, 'class Test; end')
 
 or
 
-    highlight(:ruby) do
+    highlight_code(:ruby) do
       klass = 'class'
       name  = 'Test'
       _end  = 'end'
@@ -43,7 +43,7 @@ takes a while, all highlighted source code should be cached, e.g.:
 
     <%- code = 'class Test; end' -%>
     <%- cache Digest::SHA1.hexdigest(code) do -%>
-      <%= highlight(:ruby, code) -%>
+      <%= highlight_code(:ruby, code) -%>
     <%- end -%>
 
 

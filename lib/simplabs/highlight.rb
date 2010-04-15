@@ -143,14 +143,14 @@ module Simplabs
       #    name  = 'Test'
       #    _end  = 'end'
       #    "#{klass} #{name}; #{_end}"
-    	#  end 
-    	#
-    	# @raise [ArgumentError] if both the +code+ parameter and a block are given
-    	# @raise [ArgumentError] if neither the +code+ parameter or a block are given
-    	#
-    	# @see Simplabs::Highlight.highlight
-    	#
-      def highlight(language, code = nil, &block)
+      #  end 
+      #
+      # @raise [ArgumentError] if both the +code+ parameter and a block are given
+      # @raise [ArgumentError] if neither the +code+ parameter or a block are given
+      #
+      # @see Simplabs::Highlight.highlight
+      #
+      def highlight_code(language, code = nil, &block)
         raise ArgumentError.new('Either pass a srting containing the code or a block, not both!') if !code.nil? && block_given?
         raise ArgumentError.new('Pass a srting containing the code or a block!') if code.nil? && !block_given?
         code ||= yield

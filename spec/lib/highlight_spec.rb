@@ -11,14 +11,14 @@ end
 EOC
   end
 
-  describe '#highlight' do
+  describe '#highlight_code' do
 
-    share_examples_for 'the highlight method' do
+    share_examples_for 'the highlight_code method' do
 
       describe 'when the language is not supported' do
 
         it 'should only escape HTML in the passed code' do
-          Simplabs::Highlight.highlight(:unsupported, @code).should == CGI.escapeHTML(@code)
+          Simplabs::Highlight.highlight_code(:unsupported, @code).should == CGI.escapeHTML(@code)
         end
 
       end
@@ -26,7 +26,7 @@ EOC
       describe 'when the language is supported' do
 
         it 'should correctly highlight source code passed as parameter' do
-          Simplabs::Highlight.highlight(:ruby, @code).should == %Q(<span class="k">class</span> <span class="nc">Test</span>\n  <span class="k">def</span> <span class="nf">method</span> <span class="nb">test</span>\n  <span class="k">end</span>\n<span class="k">end</span>)
+          Simplabs::Highlight.highlight_code(:ruby, @code).should == %Q(<span class="k">class</span> <span class="nc">Test</span>\n  <span class="k">def</span> <span class="nf">method</span> <span class="nb">test</span>\n  <span class="k">end</span>\n<span class="k">end</span>)
         end
 
       end
@@ -46,7 +46,7 @@ EOC
 
         Simplabs::Highlight::PygmentsWrapper.should_receive(:new).once.with(@code, :ruby).and_return(wrapper)
 
-        Simplabs::Highlight.highlight(:ruby, @code)
+        Simplabs::Highlight.highlight_code(:ruby, @code)
       end
 
     end

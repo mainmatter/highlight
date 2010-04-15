@@ -8,12 +8,12 @@ describe Simplabs::Highlight::ViewMethods do
     @ruby_code = 'class Test; end'
   end
 
-  describe '#highlight' do
+  describe '#highlight_code' do
 
     describe 'when invoked with a language and a string' do
 
       it 'should highlight the code' do
-        Simplabs::Highlight.should_receive(:highlight).once.with(:ruby, @ruby_code)
+        Simplabs::Highlight.should_receive(:highlight_code).once.with(:ruby, @ruby_code)
 
         highlight(:ruby, @ruby_code)
       end
@@ -23,7 +23,7 @@ describe Simplabs::Highlight::ViewMethods do
     describe 'when invoked with a language and a block' do
 
       it 'should highlight the code' do
-        Simplabs::Highlight.should_receive(:highlight).once.with(:ruby, @ruby_code)
+        Simplabs::Highlight.should_receive(:highlight_code).once.with(:ruby, @ruby_code)
 
         highlight(:ruby) do
           @ruby_code
@@ -35,7 +35,7 @@ describe Simplabs::Highlight::ViewMethods do
     describe 'when invoked with both a string and a block' do
 
       it 'should raise an ArgumentError' do
-        lambda { highlight(:ruby, @ruby_code) { @ruby_code } }.should raise_error(ArgumentError)
+        lambda { highlight_code(:ruby, @ruby_code) { @ruby_code } }.should raise_error(ArgumentError)
       end
 
     end
@@ -43,7 +43,7 @@ describe Simplabs::Highlight::ViewMethods do
     describe 'when invoked with neither a string nor a block' do
 
       it 'should raise an ArgumentError' do
-        lambda { highlight(:ruby) }.should raise_error(ArgumentError)
+        lambda { highlight_code(:ruby) }.should raise_error(ArgumentError)
       end
 
     end
