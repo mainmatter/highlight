@@ -92,7 +92,7 @@ Installation
 
 Installation is as easy as
 
-    ./script/plugin install git@github.com:marcoow/highlight.git
+    ./script/plugin install git@github.com:simplabs/highlight.git
 
 The hightlight.css stylesheet that contains the neccessary style
 definitions is copied to your
