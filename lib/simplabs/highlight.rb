@@ -134,11 +134,11 @@ module Simplabs
       #
       # @example Specifying the code to highlight as a String
       #
-      #  highlight(:ruby, 'class Test; end')
+      #  highlight_code(:ruby, 'class Test; end')
       #
       # @example Specifying the code to highlight in a block
       #
-      #  highlight(:ruby) do
+      #  highlight_code(:ruby) do
       #    klass = 'class'
       #    name  = 'Test'
       #    _end  = 'end'
