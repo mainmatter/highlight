@@ -1,5 +1,3 @@
-require 'tempfile'
-
 module Simplabs
 
   module Highlight
@@ -36,13 +34,12 @@ module Simplabs
       #   if the language is not supported.
       #
       def highlight
-        tempfile = ::Tempfile.new('simplabs_highlight')
-        File.open(tempfile.path, 'w') do |f|
-          f << @code
-          f << "\n"
+        command = "pygmentize -f html -O nowrap=true -l #{@language}"
+        IO.popen(command, mode = 'r+') do |pygments|
+          pygments << @code
+          pygments.close_write
+          pygments.read.strip.chomp
         end
-        result = `pygmentize -f html -O nowrap=true -l #{@language} #{tempfile.path}`
-        result.chomp
       end
 
     end

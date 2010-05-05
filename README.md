@@ -32,14 +32,8 @@ or
       "#{klass} #{name}; #{_end}"
     end
 
-To perform the highlighting, the code is first written to a temporary file e.g.:
-
-    /tmp/simplabs_highlight_1225993290.70882
-
-This file is then passed to pygments that returns the HTML and so on...
-
-Since writing that file, passing its contents on to pygments, retrieving the result etc.
-takes a while, all highlighted source code should be cached, e.g.:
+Since highlighting the code takes a while, all highlighted source code
+should be cached, e.g.:
 
     <%- code = 'class Test; end' -%>
     <%- cache Digest::SHA1.hexdigest(code) do -%>
