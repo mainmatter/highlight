@@ -4,3 +4,4 @@ rdoc
 doc
 .bundle
 .yardoc
+*.gem

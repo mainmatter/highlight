@@ -1,3 +1,4 @@
+require 'action_view'
 require 'simplabs/highlight'
 
 if `which pygmentize`.blank?

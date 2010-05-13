@@ -1,8 +1,12 @@
 require 'cgi'
 require 'net/http'
 require 'uri'
+require 'active_support/core_ext/module/attribute_accessors'
+require 'simplabs/highlight/pygments_wrapper'
 
 module Simplabs
+
+  require 'simplabs/highlight/railtie' if defined?(Rails) && Rails::VERSION::MAJOR >= 3
 
   # Highlight is a simple syntax highlighting plugin for Ruby on Rails.
   # It's basically a wrapper around the popular http://pygments.org
