@@ -1,4 +1,8 @@
 source :gemcutter
+
+gem 'rails',         '>= 2.2.0'
+gem 'activesupport', '>= 2.2.0', :require => 'active_support'
+gem 'actionpack',    '>= 2.2.0', :require => 'action_view'
  
 gem 'rake',       '>= 0.8.7'
 gem 'rspec',      '>= 1.2.0'
