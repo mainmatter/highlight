@@ -17,7 +17,7 @@ Usage
 Highlight can either be used standalone via
 
     require 'simplabs/highlight'
-    Highlight.highlight(:ruby, 'class Test; end')
+    Simplabs::Highlight.highlight(:ruby, 'class Test; end')
 
 or in Rails where it adds the `highlight_code` helper:
 
