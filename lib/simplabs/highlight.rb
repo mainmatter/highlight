@@ -39,6 +39,7 @@ module Simplabs
   # * JavaScript (+javascript+, +js+, +jscript+)
   # * JSP (+jsp+)
   # * Make (+make+, +basemake+, +makefile+)
+  # * NASM (+nasm+, +asm+)
   # * Objective-C (+objective-c+)
   # * OCaml (+ocaml+)
   # * Perl (+perl+, +pl+)
@@ -76,6 +77,7 @@ module Simplabs
       :js            => ['javascript', 'js', 'jscript'],
       :jsp           => ['jsp'],
       :make          => ['make', 'basemake', 'makefile'],
+      :nasm          => ['nasm', 'asm'],
       :'objective-c' => ['objective-c'],
       :ocaml         => ['ocaml'],
       :perl          => ['perl', 'pl'],
