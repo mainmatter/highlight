@@ -1,7 +1,5 @@
 plugin_root = File.join(File.dirname(__FILE__), '..')
 
-$:.unshift "#{plugin_root}/lib"
-
 Bundler.require
 
 require 'activesupport'
