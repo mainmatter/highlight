@@ -137,7 +137,6 @@ DEPENDENCIES
   guard-rspec (~> 2.5.1)
   highlight!
   rails (~> 3.2.13)
-  rake (~> 10.0.3)
   rb-fsevent (~> 0.9.3)
   rspec (~> 2.13.0)
   simplecov (~> 0.7.1)
