@@ -3,6 +3,8 @@ plugin_root = File.join(File.dirname(__FILE__), '..')
 $:.unshift "#{plugin_root}/lib"
 
 Bundler.require
+
+require 'activesupport'
 require 'initializer'
 
 RAILS_ROOT = File.expand_path(File.dirname(__FILE__) + '/../')

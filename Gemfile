@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rails',       '~>3.2.13'
+gem 'rails',       '~>2.3.18'
 gem 'rspec',       '~>2.13.0'
 gem 'simplecov',   '~>0.7.1'
 gem 'excellent',   '~>1.6.0'
