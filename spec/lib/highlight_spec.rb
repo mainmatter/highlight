@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Simplabs::Highlight do
 
-  before do
-    @code = <<-EOC
+  let(:code) do
+    <<-EOC
 class Test
   def method test
   end
@@ -13,12 +13,12 @@ EOC
 
   describe '#highlight' do
 
-    share_examples_for 'the highlight method' do
+    shared_examples 'the highlight method' do
 
       describe 'when the language is not supported' do
 
         it 'should only escape HTML in the passed code' do
-          Simplabs::Highlight.highlight(:unsupported, @code).should == CGI.escapeHTML(@code)
+          expect(Simplabs::Highlight.highlight(:unsupported, code)).to eq(CGI.escapeHTML(code))
         end
 
       end
@@ -26,7 +26,9 @@ EOC
       describe 'when the language is supported' do
 
         it 'should correctly highlight source code passed as parameter' do
-          Simplabs::Highlight.highlight(:ruby, @code).should == %Q(<span class="k">class</span> <span class="nc">Test</span>\n  <span class="k">def</span> <span class="nf">method</span> <span class="nb">test</span>\n  <span class="k">end</span>\n<span class="k">end</span>)
+          expect(Simplabs::Highlight.highlight(:ruby, code)).to eq(
+            %Q(<span class="k">class</span> <span class="nc">Test</span>\n  <span class="k">def</span> <span class="nf">method</span> <span class="nb">test</span>\n  <span class="k">end</span>\n<span class="k">end</span>)
+          )
         end
 
       end
@@ -39,14 +41,14 @@ EOC
         Simplabs::Highlight.use_web_api = false
       end
 
-      it_should_behave_like 'the highlight method'
+      it_behaves_like 'the highlight method'
 
       it 'should initialize a Simplabs::PygmentsWrapper.highlight with the language and code' do
-        wrapper = Simplabs::Highlight::PygmentsWrapper.new(@code, :ruby)
+        wrapper = Simplabs::Highlight::PygmentsWrapper.new(code, :ruby)
 
-        Simplabs::Highlight::PygmentsWrapper.should_receive(:new).once.with(@code, :ruby).and_return(wrapper)
+        Simplabs::Highlight::PygmentsWrapper.should_receive(:new).once.with(code, :ruby).and_return(wrapper)
 
-        Simplabs::Highlight.highlight(:ruby, @code)
+        Simplabs::Highlight.highlight(:ruby, code)
       end
 
     end
@@ -57,7 +59,7 @@ EOC
         Simplabs::Highlight.use_web_api = true
       end
 
-      it_should_behave_like 'the highlight method'
+      it_behaves_like 'the highlight method'
 
     end
 
@@ -68,7 +70,7 @@ EOC
     describe 'for an unsupported language' do
 
       it 'should return false' do
-        Simplabs::Highlight.send(:get_language_sym, 'unsupported language').should == false
+        expect(Simplabs::Highlight.send(:get_language_sym, 'unsupported language')).to be_false
       end
 
     end
@@ -76,11 +78,11 @@ EOC
     describe 'for a supported language' do
 
       it 'should return the respective symbol when the languages was given as String' do
-        Simplabs::Highlight.send(:get_language_sym, 'ruby').should == :ruby
+        expect(Simplabs::Highlight.send(:get_language_sym, 'ruby')).to eq(:ruby)
       end
 
       it 'should return the respective symbol when the languages was given as Symbol' do
-        Simplabs::Highlight.send(:get_language_sym, :rb).should == :ruby
+        expect(Simplabs::Highlight.send(:get_language_sym, :rb)).to eq(:ruby)
       end
 
     end
