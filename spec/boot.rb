@@ -1,7 +1,5 @@
 plugin_root = File.join(File.dirname(__FILE__), '..')
 
-Bundler.require
-
 require 'activesupport'
 require 'initializer'
 
