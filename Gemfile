@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails',         '>= 2.2.0'
-gem 'activesupport', '>= 2.2.0', :require => 'active_support'
-gem 'actionpack',    '>= 2.2.0', :require => 'action_view'
- 
-gem 'rake',       '>= 0.8.7'
-gem 'rspec',      '>= 1.2.0'
-gem 'simplecov',  '>= 0.7.1'
-gem 'excellent',  '>= 1.5.4'
-gem 'yard',       '>= 0.4.0'
-gem 'yard-rspec', '>= 0.1.0'
-gem 'bluecloth',  '>= 2.0.5'
+gemspec
+
+gem 'rails',      '~>3.2.13'
+gem 'rake',       '~>10.0.3'
+gem 'rspec',      '~>2.13.0'
+gem 'simplecov',  '~>0.7.1'
+gem 'excellent',  '~>1.6.0'
+gem 'yard',       '~>0.8.5'
+gem 'yard-rspec', '~>0.1'
+gem 'bluecloth',  '~>2.2.0'

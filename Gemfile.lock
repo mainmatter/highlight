@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    highlight (1.1.2)
+      activesupport (>= 2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,13 +112,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (>= 2.2.0)
-  activesupport (>= 2.2.0)
-  bluecloth (>= 2.0.5)
-  excellent (>= 1.5.4)
-  rails (>= 2.2.0)
-  rake (>= 0.8.7)
-  rspec (>= 1.2.0)
-  simplecov (>= 0.7.1)
-  yard (>= 0.4.0)
-  yard-rspec (>= 0.1.0)
+  bluecloth (~> 2.2.0)
+  excellent (~> 1.6.0)
+  highlight!
+  rails (~> 3.2.13)
+  rake (~> 10.0.3)
+  rspec (~> 2.13.0)
+  simplecov (~> 0.7.1)
+  yard (~> 0.8.5)
+  yard-rspec (~> 0.1)
