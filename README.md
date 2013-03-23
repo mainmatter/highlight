@@ -128,5 +128,3 @@ Acknowledgements
 ----------------
 
 The actual highlighting is done by Pygments ([http://pygments.org](http://pygments.org)).
-
-The pygments web API at [http://pygments.simplabs.com/](http://pygments.simplabs.com/) was created by Trevor Turk.
