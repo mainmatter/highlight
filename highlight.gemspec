@@ -3,7 +3,6 @@
 pkg_files = [
   'README.md',
   'HISTORY.md',
-  'Rakefile',
   'LICENSE'
 ]
 pkg_files += Dir['generators/**/*']
@@ -18,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to?(:required_rubygems_version=)
   s.authors                   = ['Marco Otte-Witte']
-  s.date                      = %q{2010-05-13}
+  s.date                      = %q{2013-03-23}
   s.email                     = %q{info@simplabs.com}
   s.files                     = pkg_files
   s.homepage                  = %q{http://github.com/simplabs/highlight}
