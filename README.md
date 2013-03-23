@@ -6,7 +6,7 @@ wrapper around the popular [http://pygments.org](http://pygments.org) highlighte
 written in Python and supports an impressive number of languages.
 
 If pygments is installed on the machine and in the `PATH`, that binary is used, otherwise
-the plugin falls back to the web API at [http://pygments.appspot.com/](http://pygments.appspot.com/),
+the plugin falls back to the web API at [http://pygments.simplabs.com/](http://pygments.simplabs.com/),
 created by Trevor Turk.
 
 See the API docs at [http://rdoc.info/projects/simplabs/highlight](http://rdoc.info/projects/simplabs/highlight).
@@ -129,4 +129,4 @@ Acknowledgements
 
 The actual highlighting is done by Pygments ([http://pygments.org](http://pygments.org)).
 
-The pygments web API at [http://pygments.appspot.com/](http://pygments.appspot.com/) was created by Trevor Turk.
+The pygments web API at [http://pygments.simplabs.com/](http://pygments.simplabs.com/) was created by Trevor Turk.
