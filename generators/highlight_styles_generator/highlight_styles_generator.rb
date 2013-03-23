@@ -4,10 +4,12 @@ if Rails::VERSION::MAJOR >= 3
 
     include Rails::Generators::Actions
 
+    source_root File.expand_path('../templates', __FILE__)
+
     def create_stylesheet_file
       empty_directory('public/stylesheets')
       copy_file(
-        File.join(File.dirname(__FILE__), 'templates', 'highlight.css'),
+        'highlight.css',
         'public/stylesheets/highlight.css'
       )
       readme(File.join(File.dirname(__FILE__), 'templates', 'NOTES'))
