@@ -108,7 +108,7 @@ your application's `public/stylesheets` directory via
 
 for Rails 2.x or via
 
-    rails generate highlight_styles
+    ./script/rails generate highlight_styles
 
 for Rails 3.
 
