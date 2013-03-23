@@ -4,7 +4,7 @@ pkg_files = [
   'README.md',
   'HISTORY.md',
   'Rakefile',
-  'MIT-LICENSE'
+  'LICENSE'
 ]
 pkg_files += Dir['generators/**/*']
 pkg_files += Dir['lib/**/*.rb']
