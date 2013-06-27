@@ -1,7 +1,6 @@
 require 'cgi'
 require 'net/http'
 require 'uri'
-require 'active_support/core_ext/module/attribute_accessors'
 require 'simplabs/highlight/pygments_wrapper'
 
 module Simplabs
@@ -58,7 +57,9 @@ module Simplabs
   #
   module Highlight
 
-    mattr_accessor :use_web_api
+    class << self
+      attr_accessor :use_web_api
+    end
 
     SUPPORTED_LANGUAGES = {
       :as            => ['as', 'as3', 'actionscript'],
@@ -149,7 +150,7 @@ module Simplabs
       #    name  = 'Test'
       #    _end  = 'end'
       #    "#{klass} #{name}; #{_end}"
-      #  end 
+      #  end
       #
       # @raise [ArgumentError] if both the +code+ parameter and a block are given
       # @raise [ArgumentError] if neither the +code+ parameter or a block are given
