@@ -16,34 +16,44 @@ Usage
 
 Highlight can either be used standalone via
 
-    require 'simplabs/highlight'
-    Simplabs::Highlight.highlight(:ruby, 'class Test; end')
+```ruby
+require 'simplabs/highlight'
+Simplabs::Highlight.highlight(:ruby, 'class Test; end')
+```
 
 or in Rails where it adds the `highlight_code` helper:
 
-    highlight_code(language, code = nil, &block)
+```ruby
+highlight_code(language, code = nil, &block)
+```
 
 `language` may be either a Symbol or a String (see supported languages
 below). The code can be passed either as a string or inside a block, e.g.:
 
-    highlight_code(:ruby, 'class Test; end')
+```ruby
+highlight_code(:ruby, 'class Test; end')
+```
 
 or
 
-    highlight_code(:ruby) do
-      klass = 'class'
-      name  = 'Test'
-      _end  = 'end'
-      "#{klass} #{name}; #{_end}"
-    end
+```ruby
+highlight_code(:ruby) do
+  klass = 'class'
+  name  = 'Test'
+  _end  = 'end'
+  "#{klass} #{name}; #{_end}"
+end
+```
 
 Since highlighting the code takes a while, all highlighted source code
 should be cached, e.g.:
 
-    <%- code = 'class Test; end' -%>
-    <%- cache Digest::SHA1.hexdigest(code) do -%>
-      <%= highlight_code(:ruby, code) -%>
-    <%- end -%>
+```ruby
+<%- code = 'class Test; end' -%>
+<%- cache Digest::SHA1.hexdigest(code) do -%>
+  <%= highlight_code(:ruby, code) -%>
+<%- end -%>
+```
 
 
 Supported Languages
@@ -91,26 +101,24 @@ Installation
 
 Installation is as easy as
 
-    gem install highlight
+```bash
+gem install highlight
+```
 
-To use highlight in Rails apps, you have to define the dependency. For Rails 2.x this is done in the `environment.rb`:
+To use highlight in Rails apps, you have to define the dependency in the Gemfile:
 
-    config.gem 'highlight', :lib => 'simplabs/highlight'
-
-while for Rails 3 the dependency is defined in the application's Gemfile:
-
-    gem 'highlight', :require => 'simplabs/highlight'
+```ruby
+group :development do
+  gem 'highlight', :require => 'simplabs/highlight'
+end
+```
 
 Highlight also comes with a default CSS file that defines styles for the highlighted code. This CSS file can be copied to
 your application's `public/stylesheets` directory via
 
-    ./script/generate highlight_styles
-
-for Rails 2.x or via
-
-    ./script/rails generate highlight_styles
-
-for Rails 3.
+```bash
+./bin/rails generate highlight_styles
+```
 
 If you don't have python and pygments installed, you will need that too.
 For instructions on installing pygments, refer to
