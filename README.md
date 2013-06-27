@@ -1,6 +1,8 @@
 Highlight
 =========
 
+[![Build Status](https://travis-ci.org/simplabs/highlight.png)](https://travis-ci.org/simplabs/highlight)
+
 Highlight is a simple syntax highlighting gem for Ruby and Rails. It's basically a
 wrapper around the popular [http://pygments.org](http://pygments.org) highlighter that's
 written in Python and supports an impressive number of languages.
