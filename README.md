@@ -110,9 +110,7 @@ gem install highlight
 To use highlight in Rails apps, you have to define the dependency in the Gemfile:
 
 ```ruby
-group :development do
-  gem 'highlight', :require => 'simplabs/highlight'
-end
+gem 'highlight', :require => 'simplabs/highlight'
 ```
 
 Highlight also comes with a default CSS file that defines styles for the highlighted code. This CSS file can be copied to
