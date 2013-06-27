@@ -6,3 +6,5 @@ rvm:
   - 2.0.0
   - ree
 script: "bundle exec rspec"
+install:
+  - pip install pygments
