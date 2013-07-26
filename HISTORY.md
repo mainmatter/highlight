@@ -1,3 +1,8 @@
+v1.1.6
+------
+
+* added support for CoffeeScript
+
 v1.1.5
 ------
 
