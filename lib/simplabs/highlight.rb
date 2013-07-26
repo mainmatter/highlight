@@ -27,6 +27,7 @@ module Simplabs
   # * bash (+bash+, +sh+)
   # * C (+c+, +h+)
   # * Clojure (+clojure+)
+  # * CoffeeScript (+coffee+)
   # * C++ (+c+++, +cpp+, +hpp+)
   # * C# (+c#+, +csharp+, +cs+)
   # * CSS (+css+)
@@ -67,6 +68,7 @@ module Simplabs
       :bash          => ['bash', 'sh'],
       :c             => ['c', 'h'],
       :clojure       => ['clojure'],
+      :coffeescript  => ['coffeescript', 'coffee'],
       :cpp           => ['c++', 'cpp', 'hpp'],
       :csharp        => ['c#', 'csharp', 'cs'],
       :css           => ['css'],
