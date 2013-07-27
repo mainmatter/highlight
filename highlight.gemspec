@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.email                     = %q{info@simplabs.com}
   s.files                     = pkg_files
   s.homepage                  = %q{http://github.com/simplabs/highlight}
+  s.license                   = 'MIT'
   s.require_path              = 'lib'
   s.rubygems_version          = %q{1.3.0}
   s.has_rdoc                  = false
