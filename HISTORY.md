@@ -1,3 +1,8 @@
+v1.1.7
+------
+
+* added missing gem license (MIT)
+
 v1.1.6
 ------
 
