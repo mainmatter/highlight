@@ -1,3 +1,8 @@
+v2.0.0
+------
+
+* don't strip leading/trailing whitespaces, only remove trailing newlines (http://ruby-doc.org/core-2.0/String.html#method-i-chomp)
+
 v1.1.7
 ------
 

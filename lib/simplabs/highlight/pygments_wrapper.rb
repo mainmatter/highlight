@@ -33,12 +33,12 @@ module Simplabs
       #   the highlighted code or simply the HTML-escaped code
       #   if the language is not supported.
       #
-      def highlight
+      def highlight(options = {})
         command = "pygmentize -f html -O nowrap=true -l #{@language}"
         IO.popen(command, mode = 'r+') do |pygments|
           pygments << @code
           pygments.close_write
-          pygments.read.strip.chomp
+          result = pygments.read.chomp
         end
       end
 
