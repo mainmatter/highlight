@@ -79,6 +79,7 @@ module Simplabs
       :java          => ['java'],
       :js            => ['javascript', 'js', 'jscript'],
       :jsp           => ['jsp'],
+      :lua           => ['lua'],
       :make          => ['make', 'basemake', 'makefile'],
       :nasm          => ['nasm', 'asm'],
       :'objective-c' => ['objective-c'],
