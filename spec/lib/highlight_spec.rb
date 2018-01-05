@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'webmock/rspec'
 
 describe Simplabs::Highlight do
 
@@ -57,6 +58,10 @@ EOC
 
       before do
         Simplabs::Highlight.use_web_api = true
+        stub_request(:post, Simplabs::Highlight::WEB_API_URL).to_return({
+          body: %Q(<span class="k">class</span> <span class="nc">Test</span>\n  <span class="k">def</span> <span class="nf">method</span> <span class="nb">test</span>\n  <span class="k">end</span>\n<span class="k">end</span>),
+          status: 200
+        })
       end
 
       it_behaves_like 'the highlight method'

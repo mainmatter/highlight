@@ -12,7 +12,7 @@ module Simplabs
   # highlighter that's written in Python and supports an impressive
   # number of languages. If pygments is installed on the machine and in
   # the +PATH+, that binary is used, otherwise the plugin falls back
-  # to the web API at (http://pygments.simplabs.com/), created by Trevor
+  # to the web API at (https://pygments.simplabs.com/), created by Trevor
   # Turk.
   #
   # <b>Supported Languages</b>
@@ -99,7 +99,7 @@ module Simplabs
       :yaml          => ['yaml', 'yml']
     }
 
-    WEB_API_URL = 'http://pygments.simplabs.com/'
+    WEB_API_URL = 'https://pygments.simplabs.com/'
 
     # Highlights the passed +code+ with the appropriate rules
     # according to the specified +language+.
